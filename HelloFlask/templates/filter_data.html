@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Filter</title>
+</head>
+<body>
+    <h2> Working with Jinja2 filters </h2>
+
+    {% for movie, duration in movies|dictsort (false, 'value') %}
+        <ul>
+            <li>{{ movie|title }} : {{ duration|round(1) }} </li>
+        </ul>
+    {% endfor %}
+
+    <br>
+
+    <ol type="1">
+        <li> default value       : {{ name|default('value not defined', true) }}</li> <br>
+        <li> capital case        : {{ film|capitalize }}</li> <br>
+        <li> length              : {{ movies|length}}</li> <br>
+        <li> first item          : {{ movies|first}}</li> <br>
+        <li> make a list         : {{ film|list}}</li> <br>
+        <li> replace data        : {{ film|replace('Dhriti', 'Dhani')|upper }}</li>
+    </ol>
+    <br>
+
+    <a href="http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters">more filters</a>
+</body>
+</html>

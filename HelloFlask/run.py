@@ -194,12 +194,6 @@ class Ref_Payment_Methods(db.Model):
             .format(self.payment_method_code, self.payment_method_description)
 
 class Customer_Payment_Methods(db.Model):
-    # Customer_payment_methods
-    # customer_payment_id
-    # customer_id
-    # payment_method_code
-    # credit_card_number
-    # payment_method_details
 
     __tablename__ = 'customer_payment_methods'
 
@@ -248,7 +242,7 @@ class Ref_product_types(db.Model):
     __tablename__ = 'ref_product_types'
 
     product_type_code = db.Column(db.Integer, primary_key=True)
-    parent_product_type_code = db.Column(db.Integer, db.ForeignKey('ref_product_types.product_type_code'))
+    parent_product_type_code = db.Column(db.Integer, db.ForeignKey('ref_product_types.product_type_code'), nullable=True)
     product_type_description = db.Column(db.String(500))
 
     def __init__(self, product_type_code, parent_product_type_code, product_type_description):
